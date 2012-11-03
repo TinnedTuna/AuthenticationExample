@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="AuthenticationExample" default="dist" basedir=".">
+  <description>
+        A simple project to demonstrate how to take a constant amount of time 
+        when authentication a user.
+    </description>
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist" location="dist"/>
+  <target name="init">
+    <tstamp/>
+    <mkdir dir="${build}"/>
+  </target>
+  <target name="compile" depends="init">
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+  <target name="dist" depends="compile">
+    <mkdir dir="${dist}/lib/"/>
+    <jar 
+      jarfile="${dist}/lib/AuthenticationExample-${DSTAMP}.jar" 
+      basedir="${build}"
+      manifest="${src}/META-INF/MANIFEST.MF"/>
+  </target>
+  <target name="clean" description="Clean everything.">
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
