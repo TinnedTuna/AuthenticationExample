@@ -21,6 +21,7 @@ public class RateLimiter {
       long time = System.currentTimeMillis();
       WaitStrategy waitStrategy = new ExponentialWaitStrategy(time, millisStepDown);
       waitStrategy.requestWait();
+      getRequestHistory().put(remoteAddr, waitStrategy);
     }
   }
 

@@ -22,7 +22,7 @@ public class ExponentialWaitStrategy implements WaitStrategy {
       if (stepsDown == 0) {
         currentScore++;
       } else {
-        currentScore += stepsDown;
+        currentScore -= stepsDown;
       }
       this.timeLastSeen = System.currentTimeMillis();
     }
