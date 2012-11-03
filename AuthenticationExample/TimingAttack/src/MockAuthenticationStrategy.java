@@ -8,6 +8,7 @@ public class MockAuthenticationStrategy implements AuthenticationStrategy {
    * return true or false. The first 5 requests are always true to let things
    * warm up.
    */
+  @Override
   public boolean authenticate(String username, String password) {
     if (count < 5) {
       try {

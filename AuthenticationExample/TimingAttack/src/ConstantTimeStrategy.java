@@ -22,6 +22,7 @@ public class ConstantTimeStrategy implements AuthenticationStrategy {
    *
    * @param 
    */
+  @Override
   public boolean authenticate(String username, String password) {
     long start = System.currentTimeMillis();
     // delegate
