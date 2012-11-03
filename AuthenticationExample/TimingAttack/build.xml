@@ -14,10 +14,10 @@
   <target name="compile" depends="init">
     <javac srcdir="${src}" destdir="${build}"/>
   </target>
-  <target name="dist" depends="compile">
+  <target name="dist" depends="clean,compile">
     <mkdir dir="${dist}/lib/"/>
     <jar 
-      jarfile="${dist}/lib/TimingAttackExample.jar" 
+      jarfile="${dist}/lib/TimingAttack.jar" 
       basedir="${build}"
       manifest="${src}/META-INF/MANIFEST.MF"/>
   </target>

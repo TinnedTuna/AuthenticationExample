@@ -1,4 +1,4 @@
-public class TimingAttackExample {
+public class ConstantTimeExample {
 
   public static void main(String args[]) {
   
