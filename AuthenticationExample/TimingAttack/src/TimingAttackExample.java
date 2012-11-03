@@ -1,5 +1,4 @@
-
-public class AuthenticationExample {
+public class TimingAttackExample {
 
   public static void main(String args[]) {
   
