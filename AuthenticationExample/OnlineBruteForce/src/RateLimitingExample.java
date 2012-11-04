@@ -6,7 +6,8 @@ public class RateLimitingExample {
   public static void main(String args[]) {
   
     
-    RateLimiter rateLimiter = new RateLimiter(BACKOFF_TIME); // Upto a 30s penalty.
+    WaitStrategyFactory waitStrategyFactory = new ExponentialWaitStrategyFactory(BACKOFF_TIME);
+    RateLimiter rateLimiter = new RateLimiter(waitStrategyFactory); // Upto a 30s penalty.
 
     // Ten fast requests.
     for (int i = 0; i < 10; i++) {
