@@ -11,9 +11,11 @@
   <target name="init">
     <tstamp/>
     <mkdir dir="${build}"/>
+    <mkdir dir="${build}/tests"/>
   </target>
   <target name="compile" depends="init">
     <javac srcdir="${src}" destdir="${build}"/>
+    <javac srcdir="${test}" destdir="${build}/tests/"/>
   </target>
   <target name="package" depends="clean,compile">
     <mkdir dir="${build}/jar/"/>
@@ -33,10 +35,10 @@
     <delete dir="${build}"/>
     <delete dir="${dist}"/>
   </target>
-  <target name="test">
+  <target name="test" depends="compile">
     <junit failureproperty="test.failure">
       <batchtest>
-        <fileset dir="${test}" includes="**/*Test*.class"/>
+        <fileset dir="${build}/tests" includes="**/*Test*.class"/>
       </batchtest>
     </junit>
     <fail message="Tests Failed." if="test.failure"/>
