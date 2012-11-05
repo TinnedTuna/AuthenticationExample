@@ -14,14 +14,14 @@ public class MockAuthenticator implements AuthenticationStrategy {
       // Simulate working for a long time to hash the pass.
       try {
         Thread.sleep(50);
-      } catch (InterruptedException iex) {
+      } finally {
         return true;
       }
     } else {
       // Simulate hitting the database only -- quick.
       try {
         Thread.sleep(10);
-      } catch (InterruptedException iex) {
+      } finally {
         return false;
       }
     }
