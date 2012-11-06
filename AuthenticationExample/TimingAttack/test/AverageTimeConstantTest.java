@@ -1,5 +1,5 @@
-import org.junit.Test;
-import org.junit.Assert.*;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 public class AverageTimeConstantTest {
   
@@ -9,7 +9,7 @@ public class AverageTimeConstantTest {
     this.authenticationStrategy = new ConstantTimeStrategy(new MockAuthenticator("Good","Good"));
   }
 
-  @org.junit.Test
+  @Test
   public void testConstantTime() {
     Command badAuth = new Command() {
       @Override
@@ -25,16 +25,15 @@ public class AverageTimeConstantTest {
       }
     };
 
-    long goodTime;
-    long badTime;
+    long goodTime = 0;
+    long badTime = 0;
     for (int i = 0; i < 100; i++) {
       goodTime += time(goodAuth);
       badTime += time(badAuth);
     }
-
-    Assert.assertTrue(Math.abs(goodTime-badTime) < 10);
-
-
+    System.out.println("goodTime: " + goodTime);
+    System.out.println("badTime: " + badTime);
+    assertTrue(Math.abs(goodTime-badTime) < 10);
   }
 
   private long time(Command c) {
