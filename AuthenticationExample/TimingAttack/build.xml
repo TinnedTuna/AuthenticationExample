@@ -44,8 +44,11 @@
         </path>
       </classpath>
     </javac>
-    <junit failureproperty="test.failure">
-      <batchtest fork="yes">
+    <junit 
+      failureproperty="test.failure" 
+      showoutput="yes"
+      printsummary="yes">
+      <batchtest fork="yes" todir="${build}/test-reports/">
         <fileset dir="${build}" includes="**/*Test*.class"/>
       </batchtest>
     </junit>
